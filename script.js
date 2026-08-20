@@ -64,7 +64,7 @@ revealElements.forEach(element => {
 // DISCORD COPY
 // ===============================
 
-const DISCORD_USERNAME = "DEIN_DISCORD_USERNAME";
+const DISCORD_USERNAME = "army.fastboy";
 
 const discordCopyButton =
     document.getElementById("discordCopyButton");
