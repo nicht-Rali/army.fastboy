@@ -1,5 +1,5 @@
 // ===============================
-// SMOOTH SCROLL
+// SMOOTH SCROLL.
 // ===============================
 
 document.querySelectorAll('a[href^="#"]').forEach(link => {
