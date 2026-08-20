@@ -24,14 +24,12 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 
 
 // ===============================
-// SIMPLE SCROLL REVEAL
+// SCROLL REVEAL
 // ===============================
 
-const revealElements =
-    document.querySelectorAll(
-        ".section, .skill-card, .lab-item, .featured-project, .process"
-    );
-
+const revealElements = document.querySelectorAll(
+    ".section, .skill-card, .lab-item, .featured-project, .process, .system, .project-row, .case-grid"
+);
 
 const observer = new IntersectionObserver(
     entries => {
@@ -53,7 +51,6 @@ const observer = new IntersectionObserver(
         threshold: 0.08
     }
 );
-
 
 revealElements.forEach(element => {
 
