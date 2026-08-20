@@ -864,3 +864,29 @@ footer {
     }
 
 }
+
+#discordCopyButton {
+    background: none;
+    border: none;
+
+    color: #777;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    padding: 0;
+
+    transition:
+        color .2s ease,
+        transform .2s ease;
+}
+
+#discordCopyButton:hover {
+    color: white;
+}
+
+#discordCopyButton.copied {
+    color: #fff;
+    transform: scale(1.05);
+}
