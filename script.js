@@ -59,3 +59,43 @@ revealElements.forEach(element => {
     observer.observe(element);
 
 });
+
+// ===============================
+// DISCORD COPY
+// ===============================
+
+const DISCORD_USERNAME = "DEIN_DISCORD_USERNAME";
+
+const discordCopyButton =
+    document.getElementById("discordCopyButton");
+
+const discordText =
+    document.getElementById("discordText");
+
+
+discordCopyButton.addEventListener("click", async () => {
+
+    try {
+
+        await navigator.clipboard.writeText(
+            DISCORD_USERNAME
+        );
+
+        discordText.textContent = "Copied!";
+
+        setTimeout(() => {
+
+            discordText.textContent = "Copy Discord";
+
+        }, 1500);
+
+    } catch (error) {
+
+        console.error(
+            "Could not copy Discord:",
+            error
+        );
+
+    }
+
+});
