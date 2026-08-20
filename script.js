@@ -64,38 +64,88 @@ revealElements.forEach(element => {
 // DISCORD COPY
 // ===============================
 
-const DISCORD_USERNAME = "army.fastboy";
+const DISCORD_USERNAME = "ARMY.FASTBOY";
 
-const discordCopyButton =
+const discordButton =
     document.getElementById("discordCopyButton");
 
 const discordText =
     document.getElementById("discordText");
 
 
-discordCopyButton.addEventListener("click", async () => {
+if (discordButton && discordText) {
 
-    try {
+    discordButton.addEventListener("click", async () => {
 
-        await navigator.clipboard.writeText(
-            DISCORD_USERNAME
-        );
+        try {
 
-        discordText.textContent = "Copied!";
+            // Modern clipboard API
+            if (navigator.clipboard) {
 
-        setTimeout(() => {
+                await navigator.clipboard.writeText(
+                    DISCORD_USERNAME
+                );
 
-            discordText.textContent = "Copy Discord";
+            } else {
 
-        }, 1500);
+                // Fallback
+                const textarea =
+                    document.createElement("textarea");
 
-    } catch (error) {
+                textarea.value =
+                    DISCORD_USERNAME;
 
-        console.error(
-            "Could not copy Discord:",
-            error
-        );
+                textarea.style.position = "fixed";
+                textarea.style.opacity = "0";
 
-    }
+                document.body.appendChild(textarea);
 
-});
+                textarea.focus();
+                textarea.select();
+
+                document.execCommand("copy");
+
+                textarea.remove();
+
+            }
+
+
+            // SUCCESS FEEDBACK
+
+            discordText.textContent = "Copied!";
+
+            discordButton.classList.add("copied");
+
+
+            setTimeout(() => {
+
+                discordText.textContent =
+                    "Copy Discord";
+
+                discordButton.classList.remove("copied");
+
+            }, 1500);
+
+
+        } catch (error) {
+
+            console.error(
+                "Discord copy failed:",
+                error
+            );
+
+            discordText.textContent =
+                "Copy failed";
+
+            setTimeout(() => {
+
+                discordText.textContent =
+                    "Copy Discord";
+
+            }, 1500);
+
+        }
+
+    });
+
+}
